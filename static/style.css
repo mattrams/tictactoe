@@ -1,0 +1,88 @@
+*{
+    box-sizing: border-box;
+}
+
+.col{
+    color:black;
+    border-right:solid;
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.col span{
+    opacity:0;
+}
+
+.board .row{
+    height:100px;
+    color:black;
+    border-bottom:solid;
+}
+
+.board .row:nth-last-child(1){
+    border:none;
+}
+
+.board .row .col:nth-last-child(1){
+    border:none;
+}
+
+.board{
+    height:300px;
+    width:300px;
+    position: relative;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.modal-win{
+    background-image: url("celebration.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.modal-win .modal-dialog{
+    width:50vw
+}
+
+.row-line{
+    background-color:green;
+    height:5px;
+    width:0%;
+    border-radius: 8px;
+    position: absolute;
+    top:250px;
+    opacity:0;
+    transition: width 0.5s ease-in;
+}
+.row-line-width{
+    opacity: 1;
+    width:100%;
+}
+
+.col-line{
+    background-color:green;
+    height:0%;
+    width:5px;
+    border-radius: 8px;
+    position: absolute;
+    left:250px;
+    opacity:0;
+    transition: height 0.5s ease-in;
+}
+
+.col-line-height{
+    opacity: 1;
+    height:100%;
+}
