@@ -9,8 +9,6 @@ toastClose.addEventListener('click', () => {
     liveToast.style.display = 'none'
 })
 
-// TODO: Diagonal transition
-// TODO: for col-line, adjust spacing
 
 document.addEventListener('click', (e) => {
     if (e.target.classList.contains('move')) {
@@ -63,25 +61,29 @@ document.addEventListener('click', (e) => {
                         }
                         if (keys_res.includes('col')) {
                             if (data['col'] == 0) {
-                                colLine.style.left = '50px'
+                                colLine.style.left = '47.5px'
                                 colLine.classList.add('col-line-height')
                             }
                             if (data['col'] == 1) {
-                                colLine.style.left = '150px'
+                                colLine.style.left = '147.5px'
                                 colLine.classList.add('col-line-height')
                             }
                             if (data['col'] == 2) {
-                                colLine.style.left = '250px'
+                                colLine.style.left = '247.5px'
                                 colLine.classList.add('col-line-height')
                             }
                         }
                         if (keys_res.includes('diag')) {
-                            colLine.style.left = '150px'
                             if (data['diag'] == 0) {
+                                colLine.style.left = '50px'
+                                colLine.style.top = '50px'
                                 colLine.style.transform = 'rotate(-45deg)'
                                 colLine.classList.add('col-line-height')
                             }
                             if (data['diag'] == 1) {
+                                
+                                colLine.style.left = '250px'
+                                colLine.style.top = '50px'
                                 colLine.style.transform = 'rotate(45deg)'
                                 colLine.classList.add('col-line-height')
                             }
