@@ -9,7 +9,6 @@ toastClose.addEventListener('click', () => {
     liveToast.style.display = 'none'
 })
 
-
 document.addEventListener('click', (e) => {
     if (e.target.classList.contains('move')) {
         let board = []
@@ -40,22 +39,29 @@ document.addEventListener('click', (e) => {
             .then(data => {
                 if (data['success'] == true) {
                     if (data['win'] == true) {
-                        // setTimeout(() => {
-                        //     modalWin.style.display = 'flex'
-                        //     modalWin.querySelector('.modal-body p').innerHTML = `Player <span style="color:${player == 'X' ? 'red' : 'blue'}">${player}</span> won!`
-                        // }, 2000);
                         keys_res = Object.keys(data)
+                        setTimeout(() => {
+                            modalWin.style.display = 'flex'
+                            if (keys_res.includes('draw')) {
+                                modalWin.classList.add('modal-win-gray')
+                                modalWin.querySelector('.modal-title').innerText = 'Draw!'
+                                modalWin.querySelector('.modal-body p').innerText = 'No winner, it was a draw.'
+                            }
+                            else{
+                                modalWin.querySelector('.modal-body p').innerHTML = `Player <span style="color:${player == 'X' ? 'red' : 'blue'}">${player}</span> won!`
+                            }
+                        }, 1000);
                         if (keys_res.includes('row')) {
                             if (data['row'] == 0) {
-                                rowLine.style.top = '50px'
+                                rowLine.style.top = '47.5px'
                                 rowLine.classList.add('row-line-width')
                             }
                             if (data['row'] == 1) {
-                                rowLine.style.top = '150px'
+                                rowLine.style.top = '147.5px'
                                 rowLine.classList.add('row-line-width')
                             }
                             if (data['row'] == 2) {
-                                rowLine.style.top = '250px'
+                                rowLine.style.top = '247.5px'
                                 rowLine.classList.add('row-line-width')
                             }
                         }

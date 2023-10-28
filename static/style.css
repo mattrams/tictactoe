@@ -40,6 +40,7 @@
 body{
     height:100vh;
     display:flex;
+    flex-direction:column;
     justify-content:center;
     align-items:center;
     -webkit-user-select: none;
@@ -52,6 +53,10 @@ body{
     background-image: url("celebration.gif");
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.modal-win-gray{
+    filter:grayscale(1);
 }
 
 .modal-win .modal-dialog{

@@ -21,11 +21,14 @@ def move():
     board = result['board']
     move = result['move']
     if game.is_valid_move(move,board):
-        board = game.add_move(move,board,player)
-        row_res = game.check_row(board,player)
+        board = game.add_move(move, board, player)
+        row_res = game.check_row(board, player)
         col_res = game.check_col(board, player)
-        print(row_res)
         diag_res = game.check_diag(board, player)
+        draw_res = game.check_draw(board)
+        print(board, draw_res)
+        if draw_res:
+            return json.dumps({'success': True, 'win': True, 'draw': True})
         if row_res:
             return json.dumps({'success': True, 'win': True, 'row': row_res})
         
